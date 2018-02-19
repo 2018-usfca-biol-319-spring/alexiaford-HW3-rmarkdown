@@ -3,7 +3,7 @@ title: "HW3 R and Rmarkdown"
 author: "Alexia Ford"
 date: "2/20/2018"
 output:
-word_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
