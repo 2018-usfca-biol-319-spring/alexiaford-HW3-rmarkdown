@@ -32,8 +32,14 @@ branches_data <- subset(literfall_data,
                         functionalGroup == "Twigs/branches")
 ```
 
-
-
+```{r boxplot-of-functional-types}
+# mass of twigs and branches at diffrent sites in the NEON data
+boxplot(dryMass ~ siteID,
+        data = branches_data,
+        main = "Mass of Branches at NEON sites",
+        xlab = "site ID",
+        ylab = "dryMass")
+```
 
 
 Add a number of code chunks in the Results section. These should read in, subset, plot (no need to save it to pdf, since it will be put into the rendered docx when you click 'knit'), and run a statistical test on your dataset.
