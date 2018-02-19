@@ -1,7 +1,7 @@
 ---
 title: "HW3 R and Rmarkdown"
 author: "Alexia Ford"
-date: "2/11/2018"
+date: "2/20/2018"
 output:
 word_document: default
 ---
@@ -11,11 +11,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Introduction
-The NEON project is responsible for measuring the causes and effects of environmental change across the United States within 20 eco-climate domains that all represent different landoforms, vegetation, climate, and ecosystem dyanmics. The project is constantly collecting data from it's observatory's reginal domain to provide data and statistically represent
+The NEON project provides scientific real time data in hopes of understanding environmental change, informing natrual resource decisions, and engaging the next generations of scientists with this data. The project is responsible for measuring the causes and effects of environmental change across the United States within 20 eco-climate domains that all represent different landforms, vegetation, climate, and ecosystem dyanmics. The project is constantly collecting data from it's observatory's regional domain to provide data and statistically represent ecological, physical, and biological varibility across the US (NEON data website). 
+
+NEON has four different sites that the project collects data from that will be introduced in this project, these sites include: core terrestrial sites, core aquatic sites, relocatable terrestrial sites, and lastly relocatable aquatic sites (NEON data website).In this analysis we will specifically be looking at the Barlett Experimental Forest (relocatable terrestrial), Guanica Forest (core terrestrial), Harvard Forest (core terrestrial), Santa Rita Experimental Range (core terrestrial), Steigerwaldt Land Services (relocatable terrestrial), Treehaven University of Wisconsin (relocatanle terrestrial), and University of Notre Dame Environmental Research Center (core terrestrial).
+
 
 Delete this text, and add a few paragraphs of introduction about the NEON project, and the sites you are comparing.
 
 # Methods
+The NEON observatory collects from a total of 81 fields sites, 47 of them are terrstrial sites and 34 are aquatic sites. Data is collected using "in situ" measurements, field sampling, and airborne remote sensoring.
 
 Describe briefly where the data came from (information in the pdf file in the data folder) and how you are analyzing them (e.g. using R to visualize the results and an ANOVA to test for significant differences).
 
