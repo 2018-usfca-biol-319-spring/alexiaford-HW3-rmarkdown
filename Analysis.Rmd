@@ -26,6 +26,15 @@ literfall_data <- read.csv("data/ltr_massdata.csv",
                            header = TRUE)
 ```
 
+```{r subset-out-twigs/branches-data}
+# just look at twigs and branches
+branches_data <- subset(literfall_data, 
+                        functionalGroup == "Twigs/branches")
+```
+
+
+
+
 
 Add a number of code chunks in the Results section. These should read in, subset, plot (no need to save it to pdf, since it will be put into the rendered docx when you click 'knit'), and run a statistical test on your dataset.
 
