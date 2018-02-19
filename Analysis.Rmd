@@ -12,44 +12,46 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction
 
-The NEON project provides scientific real time data in hopes of understanding environmental change, informing natural resource decisions, and engaging the next generations of scientists with this data. The project is responsible for measuring the causes and effects of environmental change across the United States within 20 eco-climate domains that all represent different landforms, vegetation, climate, and ecosystem dyanmics. The project is constantly collecting data from it's observatory's regional domain to provide data and statistically represent ecological, physical, and biological varibility across the US (NEON data website). 
+The NEON project provides scientific real time data in hopes of understanding environmental change, informing natural resource decisions, and engaging the next generations of scientists with this data. The project is responsible for measuring the causes and effects of environmental change across the United States within 20 eco-climate domains that all represent different landforms, vegetation, climate, and ecosystem dynamics. The project is constantly collecting data from it's observatory's regional domain to provide data and statistically represent ecological, physical, and biological variability across the US (NEON data website). 
 
-NEON has four different sites that the project collects data from that will be introduced in this project, these sites include: core terrestrial sites, core aquatic sites, relocatable terrestrial sites, and lastly relocatable aquatic sites (NEON data website).In this analysis we will specifically be looking at: the Barlett Experimental Forest (relocatable terrestrial), Guanica Forest Common Wealth of Puerto Rico (core terrestrial), Harvard University Forest (core terrestrial), Santa Rita Experimental Range (core terrestrial), Steigerwaldt Land Services (relocatable terrestrial), Treehaven University of Wisconsin (relocatanle terrestrial), and University of Notre Dame Environmental Research Center (core terrestrial).
+NEON has four different sites that the project collects data from that will be introduced in this project, these sites include: core terrestrial sites, core aquatic sites, relocatable terrestrial sites, and lastly relocatable aquatic sites (NEON data website).In this analysis we will specifically be looking at: the Barlett Experimental Forest (relocatable terrestrial), Guanica Forest Common Wealth of Puerto Rico (core terrestrial), Harvard University Forest (core terrestrial), Santa Rita Experimental Range (core terrestrial), Steigerwaldt Land Services (relocatable terrestrial), Treehaven University of Wisconsin (relocatable terrestrial), and University of Notre Dame Environmental Research Center (core terrestrial).
 
 # Methods
 
-The NEON observatory collects from a total of 81 fields sites, 47 of them are terrstrial sites and 34 are aquatic sites. Data is collected using "in situ" measurements, field sampling, and airborne remote sensoring. The NEON project follows a protocol for each site in which they set up a 3m X 0.5m rectangular ground trap that collects differing dry masses from floweres to twigs and branches. 
+The NEON observatory collects from a total of 81 fields sites, 47 of them are terrestrial sites and 34 are aquatic sites. Data is collected using "in situ" measurements, field sampling, and airborne remote censoring. The NEON project follows a protocol for each site in which they set up a 3m X 0.5m rectangular ground trap that collects differing dry masses from flowers to twigs and branches. 
 
-R studio has been used in this report to analyze data provided from NEON's observatory, by specifically subsetting out the the twigs and branches from the litterfall data and analyzing the differences in the drymass of trees and branches found at each of the sites being observed using a boxplot. ANOVA was used in R studio to take the varying sites drymass of branches in order to analyze the significant differnces in the sites. 
+R studio has been used in this report to analyze data provided from NEON's observatory, by specifically sub-setting out the the twigs and branches from the litterfall data and analyzing the differences in the dry mass of trees and branches found at each of the sites being observed using a box plot. ANOVA was used in R studio to take the varying sites dry mass of branches in order to analyze the significant differences in the sites. 
 
 # Results
-
+Read in Litterfall data set:
 ```{r load-in-data}
 # read in the literfall data from a csv
 literfall_data <- read.csv("data/ltr_massdata.csv",
                            header = TRUE)
 ```
 
-**Data Set showing the dry mass of Branches and Twigs at NEON sites**
+Data Set showing the dry mass of Branches and Twigs at NEON sites:
 ```{r subset-out-twigs/branches-data}
 # just look at twigs and branches
 branches_data <- subset(literfall_data, 
                         functionalGroup == "Twigs/branches")
 ```
 
-**Boxplot of the dry mass of Branches and Twigs at NEON sites**
+Box plot of the dry mass of Branches and Twigs at NEON sites:
 ```{r boxplot-of-functional-types}
 # mass of twigs and branches at diffrent sites in the NEON data
 boxplot(dryMass ~ siteID,
         data = branches_data,
         main = "Mass of Branches at NEON sites",
         xlab = "site ID",
-        ylab = "dryMass")
+        ylab = "dryMass (grams)")
 
 #r statistical test
 anova(lm(dryMass ~ siteID,
          data = branches_data))
 ```
+ANOVA p value: 0.04545
+This number shows there are some similarities but not all of the sites have similarities, this is most likely the case as the majority of the dry mass data for the sites is between 0 and 400 grams, but there is one outlier showing a mass of 1200 grams, somewhat skewing the p value as the majority of the dry mass for each site is extremely similar. 
 
 # Discussion
 
